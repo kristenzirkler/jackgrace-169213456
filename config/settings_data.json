@@ -1,0 +1,561 @@
+{
+  "current": {
+    "color_account_bg": "#000000",
+    "color_account_text": "#ffffff",
+    "color_header_bg": "#ffffff",
+    "color_header_text": "#000000",
+    "color_body_bg": "#ffffff",
+    "color_body_text": "#656565",
+    "color_primary": "#585e71",
+    "color_splash": "#1da1df",
+    "color_border": "#f7f7f7",
+    "homepage_background_light": "#f7f7f7",
+    "homepage_background_dark": "#2e3438",
+    "product_background_color": "#FFFFFF",
+    "product_slideshow_arrows": "#cccccc",
+    "color_footer_bg": "#ffffff",
+    "color_footer_text": "#656565",
+    "color_footer_social_link": "#a9a9a9",
+    "font_title": "google:sansStack:Questrial:400",
+    "font_title_capitalize": true,
+    "font_accent": "google:sansStack:Questrial:400",
+    "font_body": "google:sansStack:Abel:400",
+    "base_font_size": "16px",
+    "cart_type": "modal",
+    "cart_show_on_click": true,
+    "cart_vendor_enable": false,
+    "cart_notes_enable": false,
+    "cart_quantity": true,
+    "cart_show_additional_buttons": true,
+    "cart_continue_browsing": "shopify:\/\/collections\/all",
+    "collection_text_alignment": "text-center",
+    "product_grid_style": "hover",
+    "image_autoheight_enable": true,
+    "twittercard_handle": "",
+    "social_twitter_link": "",
+    "social_facebook_link": "",
+    "social_instagram_link": "",
+    "social_pinterest_link": "",
+    "social_google_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "social_tumblr_link": "",
+    "social_fancy_link": "",
+    "product_social_enable": false,
+    "share_enable_facebook": true,
+    "share_enable_twitter": true,
+    "share_enable_pinterest": true,
+    "share_enable_google": false,
+    "favicon": "shopify:\/\/shop_images\/JackGraceUSA_Logo_Black.png",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/JackGrace_Logo_Black_eb35504e-367f-40eb-afc1-17f385217b45.png",
+    "checkout_logo_position": "left",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "Helvetica Neue",
+    "checkout_body_font": "Helvetica Neue",
+    "checkout_accent_color": "#1990C6",
+    "checkout_button_color": "#1990C6",
+    "checkout_error_color": "#ff6d6d",
+    "checkout_use_header_image": false,
+    "checkout_logo": "",
+    "checkout_use_body_background_image": false,
+    "checkout_use_sidebar_background_image": false,
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/JackGraceUSA_Logo_Black_2dcc575c-e581-4a3d-b1fa-300a3714b32b.png",
+          "logo_max_width": "200",
+          "main_menu_linklist": "main-menu",
+          "height": "header--small",
+          "meganav_image": "",
+          "meganav_link": "",
+          "header_message": "FREE SHIPPING over $50 - SIMPLE RETURN POLICY",
+          "header_message_url": "",
+          "header_enable_account": true,
+          "header_enable_search": true,
+          "search_only_products": false
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "linklist": {
+            "type": "linklist",
+            "settings": {
+              "linklist": "main-menu"
+            }
+          },
+          "text": {
+            "type": "text",
+            "settings": {
+              "title": "Jack Grace USA",
+              "text": "<p>The coolest golf shoe ever featuring 1,875 interchangeable color combinations using premium high quality materials. &nbsp;<\/p>\r\n<p><\/p>\r\n<p>Offering free exchanges and returns.<\/p>"
+            }
+          },
+          "newsletter": {
+            "type": "newsletter",
+            "settings": {
+              "text": "Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals."
+            }
+          }
+        },
+        "block_order": [
+          "linklist",
+          "text",
+          "newsletter"
+        ],
+        "settings": {
+          "footer_image": "shopify:\/\/shop_images\/JackGrace_Logo_Black_73d0adb7-f693-4db0-a447-2f3911287df0.png",
+          "footer_secondary_linklist": "footer",
+          "footer_payment_enable": true,
+          "footer_social_enable": true
+        }
+      },
+      "product": {
+        "type": "product",
+        "settings": {
+          "description_position": "below",
+          "product_breadcrumbs": true,
+          "show_quantity": true,
+          "product_nav_enable": true,
+          "product_show_vendor": false,
+          "zoom_enable": true,
+          "related_products_enable": true
+        }
+      },
+      "collection": {
+        "type": "collection",
+        "settings": {
+          "grid_width_large": "large--one-third",
+          "grid_width_medium": "medium--one-half",
+          "grid_width_small": "small--one-whole",
+          "collection_custom_nav_list": "",
+          "collection_standard_nav": false,
+          "collection_type_nav": false,
+          "collection_vendor_nav": false,
+          "collection_tag_nav": false,
+          "collection_sorting": false,
+          "image_height": "use_screen_two_thirds",
+          "image_overlay": "image-overlay-0",
+          "text_color": "homepage--splash",
+          "parallax": true
+        }
+      },
+      "blog": {
+        "type": "blog",
+        "settings": {
+          "layout": "grid",
+          "blog_show_meta": false,
+          "image": "",
+          "image_overlay": "image-overlay-0",
+          "text_color": "homepage--light",
+          "parallax": true,
+          "tags": false
+        }
+      },
+      "article": {
+        "type": "article",
+        "settings": {
+          "blog_show_meta": true,
+          "tags": true,
+          "social": true,
+          "image_height": "use_screen_one_third",
+          "parallax": true,
+          "sidebar_tags": true,
+          "recent": true
+        }
+      },
+      "index-banner-image": {
+        "type": "index-banner-image",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/bart_fefbea0b-c625-471d-a08a-d54c73a9e45c.png",
+          "height": "use_screen_full",
+          "overlay": "image-overlay-30",
+          "parallax": false,
+          "title": "COMING SOON. THE COOLEST GOLF SHOE EVER.",
+          "description": "OUR PATENT-PENDING\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n HIDDEN CHANNEL TECHNOLOGY ALLOWS YOU  TO CHANGE THE LOOK OF YOUR SHOE INSTANTLY",
+          "text_align": "text-center",
+          "color": "homepage--white",
+          "link_text": "PRE-ORDER NOW",
+          "link": "",
+          "button_style": "btn btn--large btn--outline btn--square uppercase",
+          "button_image": ""
+        }
+      },
+      "index-product": {
+        "type": "index-product",
+        "settings": {
+          "title": "Featured product",
+          "home_product": "",
+          "homepage_product_color": "homepage--white",
+          "show_quantity": true,
+          "product_show_vendor": false,
+          "zoom_enable": false
+        }
+      },
+      "index-collection": {
+        "type": "index-collection",
+        "settings": {
+          "title": "INTERCHANGEABLE SADDLES",
+          "collection": "saddles",
+          "grid": "5",
+          "rows": "2",
+          "homepage_collection_color": "homepage--white",
+          "show_view_all": true
+        }
+      },
+      "index-video": {
+        "type": "index-video",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/shoe_on_car.png",
+          "video_link": "https:\/\/vimeo.com\/207329197\/settings\/embed",
+          "height": "use_screen_two_thirds",
+          "overlay": "image-overlay-15",
+          "parallax": true,
+          "title": "How It Works.",
+          "description": "CHECKOUT HOW SIMPLY YOU CAN ACHIEVE OVER 1,875 COLOR COMBINATIONS.",
+          "text_align": "text-center",
+          "color": "homepage--white",
+          "button_image": ""
+        }
+      },
+      "index-instagram": {
+        "type": "index-instagram",
+        "settings": {
+          "title": "Instagram",
+          "homepage_instagram_color": "homepage--white",
+          "token": "4014691795.b534787.b9e759739d034af6b96283c022f0d1a4",
+          "instagram_photo_count": "6",
+          "instagram_grid_width_large": "large--one-sixth",
+          "instagram_grid_width_medium": "medium--one-third",
+          "instagram_grid_width_small": "small--one-third"
+        }
+      },
+      "1489770832294": {
+        "type": "index-collection-grid",
+        "blocks": {
+          "1489770832294-0": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "bundled-products",
+              "title": "",
+              "link_text": "BEST SELLERS"
+            }
+          },
+          "1489787366167": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "saddles",
+              "title": "",
+              "link_text": "SHOP SADDLES"
+            }
+          },
+          "1489770853896": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "laces",
+              "title": "",
+              "link_text": "SHOP laces"
+            }
+          },
+          "1489770832294-1": {
+            "type": "featured_collection",
+            "settings": {
+              "collection": "hats",
+              "title": "",
+              "link_text": "SHOP HATS"
+            }
+          }
+        },
+        "block_order": [
+          "1489770832294-0",
+          "1489787366167",
+          "1489770853896",
+          "1489770832294-1"
+        ],
+        "settings": {
+          "title": "TOP TRENDING BUNDLES",
+          "grid": "2",
+          "homepage_collection_grid_color": "homepage--white",
+          "color": "homepage--white",
+          "button_style": "btn btn--outline btn--square uppercase",
+          "overlay": "image-overlay-35"
+        }
+      },
+      "1490052358547": {
+        "type": "index-banner-image",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/influencer_quotes_6b254cb9-b65b-44af-a29b-f2f6e052d07d.jpg",
+          "height": "use_screen_one_third",
+          "overlay": "image-overlay-0",
+          "parallax": false,
+          "title": "",
+          "description": "",
+          "text_align": "text-center",
+          "color": "homepage--white",
+          "link_text": "",
+          "link": "",
+          "button_style": "btn btn--large btn--clear btn--square uppercase",
+          "button_image": ""
+        }
+      },
+      "1490126152100": {
+        "type": "index-slideshow",
+        "blocks": {
+          "1490126152100-0": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "overlay": "image-overlay-15",
+              "title": "Image slide",
+              "description": "Tell your brand's story through images.",
+              "text_align": "text-center",
+              "color": "homepage--white",
+              "link_text": "View products",
+              "link": "",
+              "button_style": "btn btn--large btn--clear btn--square uppercase",
+              "button_image": ""
+            }
+          },
+          "1490126152100-1": {
+            "type": "image",
+            "settings": {
+              "image": "",
+              "overlay": "image-overlay-15",
+              "title": "Image slide",
+              "description": "Tell your brand's story through images.",
+              "text_align": "text-center",
+              "color": "homepage--white",
+              "link_text": "View products",
+              "link": "",
+              "button_style": "btn btn--large btn--clear btn--square uppercase",
+              "button_image": ""
+            }
+          }
+        },
+        "block_order": [
+          "1490126152100-0",
+          "1490126152100-1"
+        ],
+        "settings": {
+          "height": "use_screen_two_thirds"
+        }
+      }
+    },
+    "content_for_index": [
+      "index-banner-image",
+      "index-collection",
+      "index-video",
+      "1489770832294",
+      "1490052358547",
+      "index-instagram",
+      "1490126152100"
+    ]
+  },
+  "presets": {
+    "Bright": {
+      "color_account_bg": "#000000",
+      "color_account_text": "#ffffff",
+      "color_header_bg": "#ffffff",
+      "color_header_text": "#333333",
+      "color_body_bg": "#ffffff",
+      "color_body_text": "#000000",
+      "color_primary": "#333333",
+      "color_splash": "#1391a4",
+      "color_border": "#cccccc",
+      "homepage_background_light": "#f7f7f7",
+      "homepage_background_dark": "#2e3438",
+      "product_background_color": "#f6f6f6",
+      "product_slideshow_arrows": "#cccccc",
+      "color_footer_bg": "#f2f2f2",
+      "color_footer_text": "#333333",
+      "color_footer_social_link": "#2e3438",
+      "font_title": "google:sansStack:Oswald:400",
+      "font_title_capitalize": true,
+      "font_accent": "google:sansStack:Montserrat:400",
+      "font_body": "google:serifStack:PT+Serif:400",
+      "base_font_size": "14px",
+      "collection_text_alignment": "text-center",
+      "product_grid_style": "hover",
+      "image_autoheight_enable": true,
+      "cart_type": "modal",
+      "cart_show_on_click": true,
+      "cart_vendor_enable": false,
+      "cart_notes_enable": false,
+      "cart_show_additional_buttons": true,
+      "cart_continue_browsing": "shopify:\/\/collections\/all",
+      "twittercard_handle": "",
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_instagram_link": "",
+      "social_pinterest_link": "",
+      "social_google_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "social_tumblr_link": "",
+      "social_fancy_link": "",
+      "product_social_enable": false,
+      "share_enable_facebook": true,
+      "share_enable_twitter": true,
+      "share_enable_pinterest": true,
+      "share_enable_google": false,
+      "favicon": "",
+      "checkout_use_header_image": false,
+      "checkout_header_image": "",
+      "checkout_logo": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_use_body_background_image": false,
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_use_sidebar_background_image": false,
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_accent_color": "#1990C6",
+      "checkout_button_color": "#1990C6",
+      "checkout_error_color": "#ff6d6d"
+    },
+    "Dark": {
+      "color_account_bg": "#1d1d1d",
+      "color_account_text": "#afafaf",
+      "color_header_bg": "#000000",
+      "color_header_text": "#ffffff",
+      "color_body_bg": "#ffffff",
+      "color_body_text": "#000000",
+      "color_primary": "#000000",
+      "color_splash": "#e73131",
+      "color_border": "#cfcfcf",
+      "homepage_background_light": "#f7f7f7",
+      "homepage_background_dark": "#2e3438",
+      "product_background_color": "#cfcfcf",
+      "product_slideshow_arrows": "#cfcfcf",
+      "color_footer_bg": "#0e0d0d",
+      "color_footer_text": "#ffffff",
+      "color_footer_social_link": "#bebebe",
+      "font_title": "google:sansStack:PT+Mono:400",
+      "font_title_capitalize": false,
+      "font_accent": "google:sansStack:PT+Mono:400",
+      "font_body": "google:sansStack:PT+Mono:400",
+      "base_font_size": "14px",
+      "collection_text_alignment": "text-center",
+      "product_grid_style": "under",
+      "image_autoheight_enable": true,
+      "cart_type": "modal",
+      "cart_show_on_click": true,
+      "cart_vendor_enable": false,
+      "cart_notes_enable": false,
+      "cart_show_additional_buttons": true,
+      "cart_continue_browsing": "shopify:\/\/collections\/all",
+      "twittercard_handle": "",
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_instagram_link": "",
+      "social_pinterest_link": "",
+      "social_google_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "social_tumblr_link": "",
+      "social_fancy_link": "",
+      "product_social_enable": false,
+      "share_enable_facebook": true,
+      "share_enable_twitter": true,
+      "share_enable_pinterest": true,
+      "share_enable_google": false,
+      "favicon": "",
+      "checkout_use_header_image": false,
+      "checkout_header_image": "",
+      "checkout_logo": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_use_body_background_image": false,
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_use_sidebar_background_image": false,
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_accent_color": "#1990C6",
+      "checkout_button_color": "#1990C6",
+      "checkout_error_color": "#ff6d6d"
+    },
+    "Light": {
+      "color_account_bg": "#f3f3f3",
+      "color_account_text": "#656565",
+      "color_header_bg": "#ffffff",
+      "color_header_text": "#656565",
+      "color_body_bg": "#ffffff",
+      "color_body_text": "#656565",
+      "color_primary": "#585e71",
+      "color_splash": "#f4a482",
+      "color_border": "#f7f7f7",
+      "homepage_background_light": "#f7f7f7",
+      "homepage_background_dark": "#2e3438",
+      "product_background_color": "#FFFFFF",
+      "product_slideshow_arrows": "#cccccc",
+      "color_footer_bg": "#ffffff",
+      "color_footer_text": "#656565",
+      "color_footer_social_link": "#a9a9a9",
+      "font_title": "google:sansStack:Megrim:400",
+      "font_title_capitalize": true,
+      "font_accent": "google:sansStack:Questrial:400",
+      "font_body": "google:sansStack:Abel:400",
+      "base_font_size": "14px",
+      "collection_text_alignment": "text-center",
+      "product_grid_style": "hover",
+      "image_autoheight_enable": true,
+      "cart_type": "modal",
+      "cart_show_on_click": true,
+      "cart_vendor_enable": false,
+      "cart_notes_enable": false,
+      "cart_show_additional_buttons": true,
+      "cart_continue_browsing": "shopify:\/\/collections\/all",
+      "twittercard_handle": "",
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_instagram_link": "",
+      "social_pinterest_link": "",
+      "social_google_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "social_tumblr_link": "",
+      "social_fancy_link": "",
+      "product_social_enable": false,
+      "share_enable_facebook": true,
+      "share_enable_twitter": true,
+      "share_enable_pinterest": true,
+      "share_enable_google": false,
+      "favicon": "",
+      "checkout_use_header_image": false,
+      "checkout_header_image": "",
+      "checkout_logo": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_use_body_background_image": false,
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_use_sidebar_background_image": false,
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "Helvetica Neue",
+      "checkout_body_font": "Helvetica Neue",
+      "checkout_accent_color": "#1990C6",
+      "checkout_button_color": "#1990C6",
+      "checkout_error_color": "#ff6d6d"
+    }
+  }
+}
