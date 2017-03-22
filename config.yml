@@ -2,6 +2,7 @@ development:
   password: a86ba28e2e962368b4dc51b163f0cfeb
   theme_id: "169213456"
   store: jackgracedemo.myshopify.com
+#  timeout: 3600s
 #  password: bf4a06261633f74d949defc6a62ad793
 #  theme_id: "171068365"
 #  store: kzdevstore.myshopify.com
@@ -14,7 +15,7 @@ production:
   password: a86ba28e2e962368b4dc51b163f0cfeb
   theme_id: "169213456"
   store: jackgracedemo.myshopify.com
-#  timeout: 60s
+#  timeout: 3600s
 #  readonly: true
 # test:
 #   password: a86ba28e2e962368b4dc51b163f0cfeb

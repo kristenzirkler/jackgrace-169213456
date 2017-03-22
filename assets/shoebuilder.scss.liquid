@@ -109,7 +109,7 @@ $cart-alert-height: 40px;
 
 // Shoe Builder ------------------------------------------------------
 .shoe-builder {
-  margin-top: 20px;
+  margin-top: 50px;
   position: relative;
   @include transition(all 1s);
   @include transition-delay(1s);
@@ -238,6 +238,21 @@ $cart-alert-height: 40px;
       border-radius: 0;
     }
   }
+  .fa {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-size: 20px 40px;
+    background-repeat: no-repeat;
+    margin: 0 10px -4px 0;
+    background-image: url({{ 'checkmark.png' | asset_url }});
+  }
+  .fa-square-o {
+    background-position: bottom left;
+  }
+  .fa-check-square-o {
+    background-position: top left;
+  }
   .shoe-details {
     h2 {
       display: none;
@@ -245,18 +260,8 @@ $cart-alert-height: 40px;
     .btn {
       display: block;
       width: 100%;
-      color: $black;
-      border-color: $black;
-      text-align: center;
-      &:hover {
-        color: $white;
-        background: $black;
-      }
-      &.btn--disabled {
-        color: $gray;
-        border-color: $gray;
-
-      }
+      border-radius: 0;
+      margin: 0;
     }
     .cart-options {
       margin-bottom: 40px;
@@ -265,15 +270,13 @@ $cart-alert-height: 40px;
         padding: 10px;
         color: $black;
         display: block;
-        i {
-          width: 20px;
-        }
+        text-decoration: none;
         em {
           font-size: 12px;
           font-style: normal;
           color: $gray;
           display: block;
-          margin-left: 20px;
+          margin-left: 30px;
         }
         &:hover {
           background-color: $gray-light;
@@ -313,10 +316,19 @@ $cart-alert-height: 40px;
       background: $highlight;
       font-family: $font-family;
     }
+    &:hover {
+      .alert {
+        background-color: darken($highlight,20);
+      }
+    }
     &.btn--disabled {
       margin-bottom: 20px;
       .alert {
         display: block;
+      }
+      &:hover {
+        color: $black;
+        cursor: default;
       }
     }
   }

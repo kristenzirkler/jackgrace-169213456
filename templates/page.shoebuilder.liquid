@@ -3,8 +3,8 @@
 {% endcomment %}
 {% assign header_title = page.title %}
 
-{{ 'shoe-designer.scss.css' | asset_url | stylesheet_tag }}
-{{ 'shoe-designer.js' | asset_url | script_tag }}
+{{ 'shoebuilder.scss.css' | asset_url | stylesheet_tag }}
+{{ 'shoebuilder.js' | asset_url | script_tag }}
 
 {% assign colorNameArray = "Black	Grey	White	Charcoal	Chocolate	Latte	Burnt Orange	Orange	Gold	Lime	Mint	Teal	Kelly	Forest	Navy	USA Blue	Cobalt	Azure	Turquoise	Sky	Plum	Maroon	Crimson	Red	Pink" | split: "	" %}
 
@@ -67,7 +67,7 @@ $.preloadImages = function() {
     $("<img />").attr("src", arguments[i]);
   }
 }
-$.preloadImages({% for item in colorArray limit: 3 %}"{{ '01-shoe-' | append: item | append: '.png' | asset_url }}",{% endfor %}{% for item in colorArray %}"{{ '01-saddle-' | append: item | append: '.png' | asset_url }}","{{ '01-laces-' | append: item | append: '.png' | asset_url }}",{% endfor %}"");
+$.preloadImages({% for item in colorArray limit: 3 %}"{{ '02-shoe-' | append: item | append: '.png' | asset_url }}",{% endfor %}{% for item in colorArray %}"{{ '02-saddle-' | append: item | append: '.png' | asset_url }}","{{ '01-laces-' | append: item | append: '.png' | asset_url }}",{% endfor %}"");
 
 });
 </script>
@@ -77,6 +77,13 @@ $.preloadImages({% for item in colorArray limit: 3 %}"{{ '01-shoe-' | append: it
 	<div class="options-ctr grid__item one-quarter medium--one-third small--one-whole">
 		<div class="mobile-options-toggle" id="mobileOptionsToggle">Customize Shoe</div>
 		<div class="options">
+			<div class="option-header">
+				<div class="meta size-meta" data-option-size=""></div>
+				<h2>Size</h2>
+			</div>
+			<div class="option size-options" data-option-type="size">
+				<select class="single-option-selector" id="shoeSizeSelect"><option selected>Select Shoe Size...</option><option value="8">8</option><option value="8.5">8.5</option><option value="9">9</option><option value="9.5">9.5</option><option value="10">10</option><option value="10.5">10.5</option><option value="11">11</option><option value="11.5">11.5</option><option value="12">12</option><option value="13">13</option><option value="14">14</option></select>
+			</div>
 			<div class="option-header">
 				<div class="meta shoe-meta" data-option-color=""><span></span></div>
 				<h2>Shoe</h2>
@@ -98,22 +105,15 @@ $.preloadImages({% for item in colorArray limit: 3 %}"{{ '01-shoe-' | append: it
 			<div class="option color-options" data-option-type="laces">
 				{% include 'page_color-option-list', layout: 'laces' %}
 			</div>
-			<div class="option-header">
-				<div class="meta size-meta" data-option-size=""></div>
-				<h2>Size</h2>
-			</div>
-			<div class="option size-options" data-option-type="size">
-				<select class="single-option-selector" id="shoeSizeSelect"><option selected>Select Shoe Size...</option><option value="8">8</option><option value="8.5">8.5</option><option value="9">9</option><option value="9.5">9.5</option><option value="10">10</option><option value="10.5">10.5</option><option value="11">11</option><option value="11.5">11.5</option><option value="12">12</option><option value="13">13</option><option value="14">14</option></select>
-			</div>
 		</div>
 	</div>
 	<div class="photo-ctr grid__item one-half medium--two-thirds small--one-whole">
-		<div class="photo view-01" id="ShoePreview">
+		<div class="photo view-02" id="ShoePreview">
 			<span class="laces-photo"></span>
 			<span class="saddle-photo"></span>
 			<span class="shoe-photo"></span>
 		</div>
-		<div class="views"><span rel="changeViews" class="selected" data-view="01">1</span><span rel="changeViews" data-view="02">2</span><span rel="changeViews" data-view="00">0</span></div>
+		<div class="views"><span rel="changeViews" class="selected" data-view="02">2</span><span rel="changeViews" data-view="01">1</span><span rel="changeViews" data-view="00">0</span></div>
 	</div>
 	<div class="product-info-ctr grid__item one-quarter medium--one-whole small--one-whole">
 		<div class="shoe-details">

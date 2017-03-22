@@ -8,6 +8,33 @@
     "theme_support_email": "themes@corknine.com"
   },
   {
+    "name": "Shoe Builder Options",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Shoe Builder Options"
+      },
+      {
+        "type": "text",
+        "id": "shoe_builder_shoe_price",
+        "label": "Shoe Price (number only, no decimal, no $)",
+        "default": "160"
+      },
+      {
+        "type": "text",
+        "id": "shoe_builder_saddle_price",
+        "label": "Saddle Price",
+        "default": "30"
+      },
+      {
+        "type": "text",
+        "id": "shoe_builder_laces_price",
+        "label": "Laces Price",
+        "default": "7"
+      }
+    ]
+  },
+  {
     "name": "Color",
     "settings": [
       {
