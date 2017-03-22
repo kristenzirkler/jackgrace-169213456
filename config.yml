@@ -2,3 +2,22 @@ development:
   password: a86ba28e2e962368b4dc51b163f0cfeb
   theme_id: "169213456"
   store: jackgracedemo.myshopify.com
+#  password: bf4a06261633f74d949defc6a62ad793
+#  theme_id: "171068365"
+#  store: kzdevstore.myshopify.com
+#  proxy: http://localhost:3000
+#  ignore_files:
+#    - "*.gif"
+#    - "*.jpg"
+#    - config/settings_data.json
+production:
+  password: a86ba28e2e962368b4dc51b163f0cfeb
+  theme_id: "169213456"
+  store: jackgracedemo.myshopify.com
+#  timeout: 60s
+#  readonly: true
+# test:
+#   password: a86ba28e2e962368b4dc51b163f0cfeb
+#   theme_id: "169213456"
+#   store: jackgracedemo.myshopify.com
+#   ignores: ignore.txt
