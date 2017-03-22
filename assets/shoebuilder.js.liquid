@@ -138,9 +138,26 @@ if (!qsLacesColor) {
   // Change Views
   $('[rel="changeViews"]').click(function(event) {
     var selectedView = $(this).attr('data-view');
-    $('[rel="changeViews"]').removeClass('selected');
+    //$('[rel="changeViews"]').removeClass('selected');
     // Add Class to Options to close on click
-    $(this).addClass('selected');
+    //$(this).addClass('selected');
+    // Update links
+    switch(selectedView) {
+      case '00':
+        $('.slick-prev').attr('data-view','01');
+        $('.slick-next').attr('data-view','02');
+        break;
+      case '01':
+        $('.slick-prev').attr('data-view','02');
+        $('.slick-next').attr('data-view','00');
+        break;
+      case '02':
+        $('.slick-prev').attr('data-view','00');
+        $('.slick-next').attr('data-view','01');
+        break;
+      default:
+        break;
+    }
     // Change View
     $('.photo').removeClass().addClass('photo').addClass('view-'+selectedView);
   });

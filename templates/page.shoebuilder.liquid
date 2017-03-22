@@ -113,7 +113,11 @@ $.preloadImages({% for item in colorArray limit: 3 %}"{{ '02-shoe-' | append: it
 			<span class="saddle-photo"></span>
 			<span class="shoe-photo"></span>
 		</div>
-		<div class="views"><span rel="changeViews" class="selected" data-view="02">2</span><span rel="changeViews" data-view="01">1</span><span rel="changeViews" data-view="00">0</span></div>
+		<div class="views">
+			<span rel="changeViews" data-view="00" class="slick-prev slick-arrow" aria-label="Previous">Previous</span>
+			<span rel="changeViews" data-view="01" class="slick-next slick-arrow" aria-label="Next">Next</span>
+			<!--span rel="changeViews" class="selected" data-view="02">2</span><span rel="changeViews" data-view="01">1</span><span rel="changeViews" data-view="00">0</span-->
+		</div>
 	</div>
 	<div class="product-info-ctr grid__item one-quarter medium--one-whole small--one-whole">
 		<div class="shoe-details">
