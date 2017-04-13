@@ -1,0 +1,46 @@
+{% assign on_sale = false %}
+{% if product.compare_at_price > product.price %}
+{% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% if product.available  %}
+{% assign sold_out = false %}
+{% endif %}
+
+{% assign grid_layout = 'small--one-quarter medium--one-quarter large--one-sixth' %}
+{% if snippet_layout == 'shoe' %}
+{% assign grid_layout = 'small--one-third medium--one-third large--one-third' %}
+{% endif %}
+
+{% unless variant.title contains 'Default' %}
+{% if variant.title contains '32"' %}
+{% assign shoe_size = '8 85' %}
+{% elsif variant.title contains '34"' %}
+{% assign shoe_size = '9 95 10 105' %}
+{% elsif variant.title contains '37"' %}
+{% assign shoe_size = '11 115 12 13 14' %}
+{% else %}
+{% assign shoe_size = variant.title | replace:'.','' %}
+{% endif %}
+{% endunless %}
+<div rel="select-item" class="multi-item hidden grid__item {{ grid_layout }} {% if on_sale %} on-sale{% endif %} product-grid-item" data-shoesize="{{ shoe_size }}" data-variant-type="{{ snippet_layout }}" data-variantid="{{ variant.id }}" data-variantPrice="{{ product.price | money_without_currency }}" data-variant-color="{{ product.metafields.product.product_color }}">
+  <a>
+    <span class="check"><i class="fa fa-square-o"></i> Add to Cart</span>
+    <span class="image"><img class="retina-img" src="{{ product.featured_image.src | img_url: 'large' }}" data-retina-src="{{ product.featured_image.src | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}">&nbsp;</span>
+    {% unless variant.title contains 'Default' %}<em class="hidden">{{ variant.title }}</em>{% endunless %}
+
+    <span class="price{% if on_sale %} on-sale{% endif %}">
+      {% if product.price_varies %}{{ 'products.general.from' | t }} {% endif %}
+      <span class="money">{{ product.price | money }}</span>
+      {% if sold_out %}
+      <span class="sold-out">{{ 'products.product.sold_out' | t }}</span>
+      {% endif %}
+      {% if on_sale %}
+      <span class="compare-at">
+        <span class="money">{{ product.compare_at_price | money }}</span>
+      </span>
+      {% endif %}
+    </span>
+  </a>
+</div>

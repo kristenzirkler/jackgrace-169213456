@@ -34,11 +34,11 @@
 
 <div class="wrapper page-margin">
   {% for collection in collections %}
-    {% unless collection.handle == 'frontpage' %}
+    {% unless collection.handle == 'frontpage' %}{% unless collection.handle contains 'quickbuy' %}
 
       {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
 
-      <div class="collection-list-item">
+      <div class="collection-list-item" data-handle="{{ collection.handle }}">
         <div class="section-header">
           <h3 class="h3 section-header__left title"><a href="{{ collection.url }}" title="{{ 'collections.general.link_title' | t: title: collection_title }}">{{ collection_title }} &rsaquo;</a></h3>
         </div>
@@ -49,7 +49,7 @@
         </div>
       </div>
 
-    {% endunless %}
+    {% endunless %}{% endunless %}
   {% endfor %}
 </div>
 

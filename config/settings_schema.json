@@ -31,6 +31,45 @@
         "id": "shoe_builder_laces_price",
         "label": "Laces Price",
         "default": "7"
+      },
+      {
+        "type": "text",
+        "id": "multibuilder_size_subtext",
+        "label": "Size Subtext",
+        "default": "The Innovator 1.0 and accessories are fitted to shoe size."
+      },
+      {
+        "type":      "collection",
+        "id":        "multibuilder_shoe_collection",
+        "label":     "Multibuilder Shoe Collection"
+      },
+      {
+        "type": "text",
+        "id": "multibuilder_shoe_subtext",
+        "label": "Shoe Subtext",
+        "default": "Already own the shoe? Hit Next > to pick saddles."
+      },
+      {
+        "type":      "collection",
+        "id":        "multibuilder_saddle_collection",
+        "label":     "Multibuilder Saddle Collection"
+      },
+      {
+        "type": "text",
+        "id": "multibuilder_saddle_subtext",
+        "label": "Saddles Subtext",
+        "default": "Choose as many colors as you'd like. Matching laces are included."
+      },
+      {
+        "type":      "collection",
+        "id":        "multibuilder_lace_collection",
+        "label":     "Multibuilder Lace Collection"
+      },
+      {
+        "type": "text",
+        "id": "multibuilder_lace_subtext",
+        "label": "Laces Subtext",
+        "default": "Personalize your look with contrasting laces."
       }
     ]
   },

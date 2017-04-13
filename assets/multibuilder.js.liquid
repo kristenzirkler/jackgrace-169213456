@@ -1,0 +1,256 @@
+$(function(){
+
+// VARIABLES ---------------------------------------------------------
+var defaultShoeSize = '8';
+
+// INITIALIZE BUILDER ------------------------------------------------
+// Show 1 size of shoes & saddles
+$('div[data-shoesize="'+defaultShoeSize+'"]').removeClass('hidden');
+// Show 1 size of laces
+$('#multisection-4 div[data-shoesize*="'+defaultShoeSize+'"]').removeClass('hidden');
+// Hide overflow
+//$('#buy-multiple').addClass('builder-restricted');
+//scrollToID('#buy-multiple');
+
+// CLICK FUNCTIONS ---------------------------------------------------
+  // Update shoe size 
+  $('#shoeSizeSelect').change(function() {
+    var shoeSize = $(this).val(),
+        shoeSizeStripped = shoeSize.replace('.','');
+
+    // Clear all previous selections
+    clearAllSelections();
+    $('.multi-item').addClass('hidden');
+
+    // If Size Selected
+    if (shoeSize) {
+
+      // update nav
+      $('.multi-page-header').addClass('fixed');
+      $('#selectedSize').text(shoeSize);
+
+      // update sizes on all sections
+      $('div[data-shoesize="'+shoeSizeStripped+'"]').removeClass('hidden');
+      $('#multisection-4 div[data-shoesize*="'+shoeSizeStripped+'"]').removeClass('hidden');
+
+      // scroll to shoe section
+      selectSelection('2');
+    } else {
+      // No Size Selected - Clear all selections
+      clearAllSelections();
+      selectSelection('1');
+    }
+  });
+  // Update section
+  $('[rel="section-change"]').click(function(event) {
+    event.preventDefault();
+    var thisSection = $(this).attr('data-section'),
+        direction = $(this).attr('data-direction'),
+        newSection = '';
+
+    // disable current section
+    $('#multisection-'+thisSection).addClass('disabled');
+    // get new section
+    if (direction == 'next') {
+      newSection = parseInt(thisSection)+1;// Hide overflow
+    } else {
+      newSection = parseInt(thisSection)-1;
+    }
+
+    if (newSection == '3' || newSection == '4' || newSection == '5') {
+      //$('#buy-multiple').removeClass('builder-restricted');
+    } else {
+      //$('#buy-multiple').addClass('builder-restricted');
+    }
+    $('#multisection-'+newSection).removeClass('disabled');
+    // scroll to new section
+    scrollToID('#multisection-'+newSection);
+
+  });
+  // Update selected item
+  $('[rel="select-item"]').click(function(event) {
+    event.preventDefault();
+
+    var itemVariantID = $(this).attr('data-variantid'),
+        itemVariantPrice = $(this).attr('data-variantPrice'),
+        itemName = $(this).find('.color').html(),
+        itemType = $(this).attr('data-variant-type'),
+        itemColor = $(this).attr('data-variant-color'),
+        thisSelected = $(this).hasClass('selected'),
+        thisDisabled = $(this).hasClass('disabled');
+
+    if (!thisDisabled) {
+      if (thisSelected) {
+        // Remove item --------------------------------------------------
+        // Remove selected class
+        $(this).removeClass('selected');
+        // Change check to unchecked
+        $(this).find('i').toggleClass('fa-check-square-o').toggleClass('fa-square-o');
+        // remove "included" alert
+        updateIncludedColors('remove',itemType,itemColor);
+        // Update Cart
+        updateCart('remove',itemVariantID,itemVariantPrice,itemType,itemColor);
+      } else {
+        // Add item -----------------------------------------------------
+        // Add selected class
+        $(this).addClass('selected');
+        // Change check to checkmark and keep unhidden.
+        $(this).find('i').toggleClass('fa-check-square-o').toggleClass('fa-square-o');
+        // add "included" alert
+        updateIncludedColors('add',itemType,itemColor);
+        // Update Cart
+        updateCart('add',itemVariantID,itemVariantPrice,itemType,itemColor);
+      }
+    }
+  });
+  // Top 'preview cart' link
+  $('#preview-cart').click(function(event) {
+    event.preventDefault();
+    // scroll to cart section
+    selectSelection('5');
+  });
+  // Post items to cart & redirect page
+  $('#AddToCartBuilder').click(function(event) {
+    event.preventDefault();
+    var variantString = $(this).attr('data-variants');
+    $.post('/cart/update.js', variantString, function(data){
+      window.location.href = '/cart';
+    },'json');
+  });
+
+// FUNCTIONS ---------------------------------------------------------
+
+  // SelectedSection
+  function selectSelection(selectedSection) {
+    // disable all sections
+    $('#multisection-1').addClass('disabled');
+    $('#multisection-2').addClass('disabled');
+    $('#multisection-3').addClass('disabled');
+    $('#multisection-4').addClass('disabled');
+    $('#multisection-5').addClass('disabled');
+
+    if (selectedSection != '0') {
+      $('#multisection-'+selectedSection).removeClass('disabled');
+      scrollToID('#multisection-'+selectedSection);
+    }
+
+  }
+  // Clear All Selections
+  function clearAllSelections() {
+    // disable all sections
+    selectSelection('0');
+    $('.multi-page-header').removeClass('fixed');
+    $('#selectedSize').text(' ');
+
+    // hide all items
+    $('.multi-item').addClass('hidden');
+    // show one size but keep disabled
+    $('div[data-shoesize="'+defaultShoeSize+'"]').removeClass('hidden');
+    $('#multisection-4 div[data-shoesize*="'+defaultShoeSize+'"]').removeClass('hidden');
+  }
+  // Update Cart Options & Price
+  function updateCart(action,variantID,variantPrice,variantType,variantColor) {
+    var cartPrice = $('#cartTotalPrice').text(),
+        cartURL =  $('#AddToCartBuilder').attr('href'),
+        variantOptionsString = $('#AddToCartBuilder').attr('data-variants');
+
+    if (action == 'add') {
+      // Add price to total
+      cartPrice = +cartPrice + +variantPrice;
+      // Add total to text
+      $('[rel="cartPrice"] span').text(cartPrice);
+      // Update Cart List
+      updateCartList(action,variantID,variantPrice,variantType,variantColor);
+      
+      // Add variant to button
+      cartURL = cartURL + variantID + ':1,';
+      variantOptionsString = variantOptionsString+'updates['+variantID+']=1&';
+
+      $('#preview-cart').removeClass('btn--disabled');
+      $('#AddToCartBuilder').attr('href',cartURL).removeClass('btn--disabled');
+      $('#AddToCartBuilder').attr('data-variants',variantOptionsString);
+    } else {
+      // Remove price to total
+      cartPrice = +cartPrice - +variantPrice;
+      // Add total to text
+      $('[rel="cartPrice"] span').text(cartPrice);
+      // Update Cart List
+      updateCartList(action,variantID,variantPrice,variantType,variantColor);
+
+      // remove variant from button
+      cartURL = cartURL.replace(variantID + ':1,','');
+      variantOptionsString = variantOptionsString.replace('updates['+variantID+']=1&','');
+
+      $('#AddToCartBuilder').attr('href',cartURL).removeClass('btn--disabled');
+      $('#AddToCartBuilder').attr('data-variants',variantOptionsString);
+
+    }
+  }
+  // Update Cart List on Page
+  function updateCartList(action,variantID,variantPrice,variantType,variantColor) {
+    // Get existing data
+    var currentPrice = $('#cart'+variantType+' .subtotal span').text(),
+        currentQty = $('#cart'+variantType+' .qty').text(),
+        currentColors = $('#cart'+variantType+' .colors').html(),
+        colorTileHtml = '<span class="'+variantColor+'">'+variantColor+'</span>';
+
+    if (action == 'add') {
+      // Update type subtotal 
+      currentPrice = +currentPrice + +variantPrice;
+      $('#cart'+variantType+' .subtotal span').text(currentPrice);
+      // Update type qty
+      currentQty ++;
+      $('#cart'+variantType+' .qty').text(currentQty);
+      // Update color list
+      $('#cart'+variantType+' .colors').html(colorTileHtml+currentColors);
+    } else {
+      // Update type subtotal 
+      currentPrice = +currentPrice - +variantPrice;
+      $('#cart'+variantType+' .subtotal span').text(currentPrice);
+      // Update type qty
+      currentQty --;
+      $('#cart'+variantType+' .qty').text(currentQty);
+      // Update color list
+      currentColors = currentColors.replace(colorTileHtml,'');
+      $('#cart'+variantType+' .colors').html(currentColors);
+    }
+  }
+  // Update "Included" color
+  function updateIncludedColors(action,variantType,variantColor) {
+    if (action == 'add') {
+      if (variantType == 'shoe') {
+        // if shoe - update BLACK saddle & laces
+        $('[data-item-type="saddle"] [data-variant-color="black"]').addClass('included disabled');
+        $('[data-item-type="lace"] [data-variant-color="black"]').addClass('included disabled');
+      } else if (variantType == 'saddle') {
+        // if saddle - update laces
+        $('[data-item-type="lace"] [data-variant-color="'+variantColor+'"]').addClass('included disabled');
+      }
+    } else {
+
+    }
+  }
+
+  // Get params in url
+  function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+  // scroll to id
+  function scrollToID(aid){
+      var aTagName = aid,
+          aTag = $(aTagName).offset();
+
+      var aTagTop = aTag.top,
+        aTagAddOffset = 0,
+        aTagOffset = aTagTop-aTagAddOffset;
+
+      $('html,body').animate({scrollTop: aTagOffset},'slow');
+  }
+
+});

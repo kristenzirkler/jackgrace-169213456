@@ -1,0 +1,203 @@
+{% comment %}
+Collects 3 collections and filters by size to create the ability to buy multiple things in one page.
+{% endcomment %}
+{% include 'color-list' %}
+{{ 'multibuilder.scss.css' | asset_url | stylesheet_tag }}
+{{ 'multibuilder.js' | asset_url | script_tag }}
+
+<style>
+/* Styles for Colors */
+{% for item in colorArray %}
+.cart-items .colors .{{ item }} {
+	background-color: {{ colorHexArray[forloop.index0] }};
+    border-color: {{ colorHexArray[forloop.index0] }};
+}
+{% endfor %}
+.cart-items .colors .white {
+    border-color: #ccc;
+}
+</style>
+
+<div class="multibuilder">
+
+<div class="wrapper collection-title text-center color-text homepage--splash">
+	<div class="grid">
+	  <h1 class="title grid__item one-whole">{{ page.title }}</h1>
+	  {% if page.content.size > 0 %}
+	    <div class="collection-text--body rte grid__item large--three-fifths push--large--one-fifth">
+			<div class="h4--body rte">
+			{{ page.content }}
+			</div>
+	    </div>
+	  {% endif %}
+	</div>
+</div>
+{% comment %}
+Remove if design approved----------------------------------------------
+<div class="multi-page-header">
+	<h1>Quick Buy</h1>
+	<p>Get the most out of the Innovator's unique interchangable design.</p>
+	<div class="size">Size: <span id="selectedSize">&nbsp;</span></div>
+	<a id="preview-cart" class="button cart-preview-button btn--disabled" href="#">Preview Cart <span rel="cartPrice">($<span>0.00</span>)</span></a>
+</div>
+{% endcomment %}
+
+<div class="multi-section" id="multisection-1">
+<div class="inner">
+	<div class="head text-center">
+		<h2>Select Shoe Size</h2>
+		<p>{{ settings.multibuilder_size_subtext }}</p>
+	</div>
+	<div class="option size-options" data-option-type="size">
+		<select class="single-option-selector" id="shoeSizeSelect"><option value="" selected>Select Shoe Size...</option><option value="8">8</option><option value="8.5">8.5</option><option value="9">9</option><option value="9.5">9.5</option><option value="10">10</option><option value="10.5">10.5</option><option value="11">11</option><option value="11.5">11.5</option><option value="12">12</option><option value="13">13</option><option value="14">14</option></select>
+	</div>
+</div>
+</div>
+<div class="multi-section disabled" id="multisection-2" data-item-type="shoe">
+<div class="inner">
+	<div class="head text-center">
+		<h2>Select Base Shoe</h2>
+		<p>{{ settings.multibuilder_shoe_subtext }}</p>
+	</div>
+	<div class="grid-uniform image_autoheight_enable">
+	{% assign snippet_layout = 'shoe' %}
+	{% if settings.multibuilder_shoe_collection != blank %}
+		{% if collections[settings.multibuilder_shoe_collection].products_count != 0 %}
+			{% for product in collections[settings.multibuilder_shoe_collection].products %}
+
+          {% if product.available %}
+            {% for variant in product.variants %}
+              {% if variant.available %}
+                  {% include 'product-grid-item-multibuilder' with snippet_layout: 'shoe' %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+			{% endfor %}
+		{% endif %}
+	{% endif %}
+	</div>
+	<div class="buttons">
+		<a class="button next" rel="section-change" data-direction="next" data-section="2" href="#">Next &rarr;</a>
+		<a class="button secondary" rel="section-change" data-direction="back" data-section="2" href="#">&larr; Back</a>
+	</div>
+</div>
+</div>
+
+<div class="multi-section disabled" id="multisection-3" data-item-type="saddle">
+<div class="inner">
+	<div class="head text-center">
+		<h2>Select Saddles</h2>
+		<p>{{ settings.multibuilder_saddle_subtext }}</p>
+	</div>
+	<div class="grid-uniform image_autoheight_enable">
+	{% assign snippet_layout = 'saddle' %}
+	{% if settings.multibuilder_saddle_collection != blank %}
+		{% if collections[settings.multibuilder_saddle_collection].products_count != 0 %}
+			{% for product in collections[settings.multibuilder_saddle_collection].products %}
+
+          {% if product.available %}
+            {% for variant in product.variants %}
+              {% if variant.available %}
+                  {% include 'product-grid-item-multibuilder' with snippet_layout: 'saddle' %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+			{% endfor %}
+		{% endif %}
+	{% endif %}
+	</div>
+	<div class="buttons">
+		<a class="button next" rel="section-change" data-direction="next" data-section="3" href="#">Next &rarr;</a>
+		<a class="button secondary" rel="section-change" data-direction="back" data-section="3" href="#">&larr; Back</a>
+	</div>
+</div>
+</div>
+
+<div class="multi-section disabled" id="multisection-4" data-item-type="lace">
+<div class="inner">
+	<div class="head text-center">
+		<h2>Select Laces</h2>
+		<p>{{ settings.multibuilder_lace_subtext }}</p>
+	</div>
+	<div class="grid-uniform image_autoheight_enable">
+	{% if settings.multibuilder_lace_collection != blank %}
+		{% if collections[settings.multibuilder_lace_collection].products_count != 0 %}
+			{% for product in collections[settings.multibuilder_lace_collection].products %}
+
+          {% if product.available %}
+            {% for variant in product.variants %}
+              {% if variant.available %}
+                  {% include 'product-grid-item-multibuilder' with snippet_layout: 'lace' %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+			{% endfor %}
+		{% endif %}
+	{% endif %}
+	</div>
+	<div class="buttons">
+		<a class="button next" rel="section-change" data-direction="next" data-section="4" href="#">Next &rarr;</a>
+		<a class="button secondary" rel="section-change" data-direction="back" data-section="4" href="#">&larr; Back</a>
+	</div>
+</div>
+</div>
+
+<div class="multi-section disabled multibuilder-cart" id="multisection-5">
+<div class="inner">
+	<div class="head text-center">
+		<h2>Preview Cart</h2>
+		<p>Review your selections and hit <strong>"Add to Cart"</strong> to purchase.</p>
+	</div>
+	<div class="cart-items" id="cartSelections">
+		<div class="cart-item header">
+			<div class="title">&nbsp;</div>
+			<div class="qty">QTY</div>
+			<div class="subtotal">TOTAL</div>
+		</div>
+		<div class="cart-item" id="cartshoe">
+			<div class="title">
+				<strong>Innovator 1.0 Shoe</strong>
+				<p>Black Saddle/Laces Included</p>
+				<span class="colors">&nbsp;</span>
+			</div>
+			<div class="qty">0</div>
+			<div class="subtotal">$<span>0.00</span></div>
+		</div>
+		<div class="cart-item" id="cartsaddle">
+			<div class="title">
+				<strong>Additional Saddles</strong>
+				<p>Matching Laces Included</p>
+				<span class="colors">&nbsp;</span>
+			</div>
+			<div class="qty">0</div>
+			<div class="subtotal">$<span>0.00</span></div>
+		</div>
+		<div class="cart-item" id="cartlace">
+			<div class="title">
+				<strong>Additional Laces</strong>
+				<span class="colors">&nbsp;</span>
+			</div>
+			<div class="qty">0</div>
+			<div class="subtotal">$<span>0.00</span></div>
+		</div>
+		<div class="cart-item" id="cartTotal">
+			<div class="title">
+				<strong>This Combo Total</strong>
+			</div>
+			<div rel="cartPrice" class="total">$<span id="cartTotalPrice">0.00</span></div>
+		</div>
+	</div>
+	<div class="buttons">
+        <a href="https://www.jackgraceusa.com/cart/" id="AddToCartBuilder" class="button next addtocart btn--disabled" data-variants="">
+          <span id="AddToCartText">Add to Cart</span>
+        </a>
+		<a class="button secondary" rel="section-change" data-direction="back" data-section="5" href="#">&larr; Back</a>
+	</div>
+</div>
+</div>
+
+
+</div><!-- .multibuilder -->

@@ -101,6 +101,11 @@
         </div>
       </div>
     {% endunless %}
+
+  {% if collection.title contains 'Saddle' or collection.title contains 'Lace' %}
+  <div class="multi-button"><a class="btn btn--clear uppercase" href="/pages/quick-buy">Want to Buy Multiple? <span>Click Here</span></a></div>
+  {% endif %}
+
     <div class="wrapper">
       {% if section.settings.collection_sorting %}
         <div class="row text-right collection__sort">
