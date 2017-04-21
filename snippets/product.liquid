@@ -248,3 +248,7 @@
 {% if product.template_suffix contains "charge-rabbit" %}
   {% include 'membership-product-callbacks' %}
 {% endif %}
+
+{% if product.title contains 'Shoe' %}{% else %}
+<div class="covet-pics-gallery" ></div>
+{% endif %}
