@@ -8,13 +8,14 @@ Collects 3 collections and filters by size to create the ability to buy multiple
 <style>
 /* Styles for Colors */
 {% for item in colorArray %}
+{% if item == 'burntorange' %}.cart-items .colors .borange,{% endif %}
 .cart-items .colors .{{ item }} {
 	background-color: {{ colorHexArray[forloop.index0] }};
     border-color: {{ colorHexArray[forloop.index0] }};
-}
-{% endfor %}
+}{% endfor %}
 .cart-items .colors .white {
     border-color: #ccc;
+    color: #000;
 }
 </style>
 
@@ -43,7 +44,7 @@ Remove if design approved----------------------------------------------
 {% endcomment %}
 
 <div class="multi-section" id="multisection-1">
-<div class="inner">
+<div class="inner"><div class="select-size">
 	<div class="head text-center">
 		<h2>Select Shoe Size</h2>
 		<p>{{ settings.multibuilder_size_subtext }}</p>
@@ -51,7 +52,7 @@ Remove if design approved----------------------------------------------
 	<div class="option size-options" data-option-type="size">
 		<select class="single-option-selector" id="shoeSizeSelect"><option value="" selected>Select Shoe Size...</option><option value="8">8</option><option value="8.5">8.5</option><option value="9">9</option><option value="9.5">9.5</option><option value="10">10</option><option value="10.5">10.5</option><option value="11">11</option><option value="11.5">11.5</option><option value="12">12</option><option value="13">13</option><option value="14">14</option></select>
 	</div>
-</div>
+</div></div>
 </div>
 <div class="multi-section disabled" id="multisection-2" data-item-type="shoe">
 <div class="inner">

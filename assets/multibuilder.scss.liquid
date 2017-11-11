@@ -185,14 +185,41 @@ $mobile-side-space: 30px;
     }
   }
 }
+// 'Select Size' Section Customizations
 #multisection-1 {
+  .inner {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
   .size-options {
-    padding: 0 40px;
+    padding: 0 20px;
     max-width: 400px;
     margin-left: auto;
     margin-right: auto;
   }
+  select {
+    border-color: $gray-light;
+    box-shadow: 0 0 10px rgba($black,.2);
+  }
 }
+.select-size {
+  margin: 0 auto;
+  max-width: 400px;
+  border: 1px solid $black;
+  box-shadow: 0 0 0 8px $white, 0 0 0 11px $black;
+  padding: 40px;
+}
+// 'Laces' Section Customizations
+#multisection-4 {
+  .multi-item {
+    a {
+      &:after {
+        content: 'Free with Saddle';
+      }
+    }
+  }
+}
+// Items in List
 .multi-item {
   clear: none !important;
   &.hidden {
@@ -214,16 +241,17 @@ $mobile-side-space: 30px;
     border: 2px solid $white;
     height: 18vw;
     &:after {
-      content: 'Included';
+      content: 'Free with Shoe';
       font-size: 12px;
       font-family: $accent-font;
       text-transform: uppercase;
-      color: $white;
-      background: rgba($black,.6);
+      color: $black;
+      text-shadow: 0 0 3px $white;
+      background: rgba($white,.8);
       position: absolute;
       top: 0; bottom: 0;
       left: 0; right: 0;
-      z-index: 2;
+      z-index: 3;
       line-height: 18vw;
       display: none;
     }
@@ -237,6 +265,15 @@ $mobile-side-space: 30px;
     img {
       vertical-align: middle;
     }
+  }
+  .color {
+    position: absolute;
+    bottom: 0;
+    z-index: 2;
+    font-size: 11px;
+    text-transform: uppercase;
+    padding: 0 3px;
+    color: $gray;
   }
   .check, .price {
     display: none;
@@ -301,13 +338,17 @@ $mobile-side-space: 30px;
   }
   .colors {
     overflow: hidden;
+    margin-top: 4px;
     span {
       float: left;
       margin: 0 2px 2px 0;
-      width: 20px;
       height: 20px;
       border: 1px solid $gray-light;
-      text-indent: -5000px;
+      font-size: 11px;
+      color: $white;
+      text-align: center;
+      padding: 0 5px;
+      line-height: 20px;
     }
   }
 }
